@@ -16,9 +16,11 @@ def test_text_box():
     browser.element('#submit').perform(command.js.scroll_into_view).click()
 
     # THEN
-    browser.element('#name').should(have.text(f'Name:{name}'))
-    browser.element('#email').should(have.text(f'Email:{email}'))
-    # browser.element('#currentAddress').should(have.text(f'Current Address :{address}'))
-    # browser.element('#permanentAddress').should(have.text(f'Permananet Address :{address}'))
-
-    # browser.all('#output>p').should(have.texts(f'Name:{name}', f'Email:{email}'))
+    browser.all('#output>div>p').should(
+        have.texts(
+            f'Name:{name}',
+            f'Email:{email}',
+            f'Current Address :{address}',
+            f'Permananet Address :{address}'
+        )
+    )
