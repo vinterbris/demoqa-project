@@ -5,7 +5,7 @@ from demoqa_ui_tests.test_data.users import student
 
 
 def test_successful_simple_user_registration():
-    app.simple_registration_page.open()
+    app.side_panel.open_simple_registration_form()
 
     # WHEN
     app.simple_registration_page.fill_form(student)
@@ -16,7 +16,7 @@ def test_successful_simple_user_registration():
 
 
 def test_successful_user_registration():
-    app.registration_page.open()
+    app.side_panel.open_registration_form()
 
     # WHEN
     app.registration_page.fill_form(student)
@@ -25,19 +25,3 @@ def test_successful_user_registration():
     # THEN
     app.registration_page.should_have_registered_user_data(student)
     app.registration_page.close_modal_window()
-
-
-def test():
-    browser.open('/')
-    element_group = 'Elements'
-    menu_item = ''
-
-    current_element_group = browser.all('.header-text').element_by(
-        have.exact_text(element_group)
-    )
-    current_element_group.click()
-    # current_element_group.all()
-
-
-def test_main_page():
-    app.main_page.open_book_store_application()

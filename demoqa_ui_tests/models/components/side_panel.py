@@ -1,15 +1,21 @@
-from selene import browser, have
+from selene import browser, have, be
+
+from demoqa_ui_tests.models.pages.main_page import MainPage
 
 
 class SidePanel:
 
-    def _open(self, element_group, menu_item):
-        current_element_group = browser.all('.element-group').element_by(
-            have.exact_text(element_group)
-        )
-        current_element_group.click()
-        current_element_group.all()
+    def __init__(self):
+        self.main_page = MainPage()
+        self.header_name = browser.all('.header-text')
 
-    def open_simple_registration_form(self): ...
+    def _open(self, element_group, item):
 
-    def open_registration_form(self): ...
+        self.main_page.open(element_group)
+        browser.all('.text').element_by(have.exact_text(item)).click()
+
+    def open_simple_registration_form(self):
+        self._open('Elements', 'Text Box')
+
+    def open_registration_form(self):
+        self._open('Forms', 'Practice Form')
