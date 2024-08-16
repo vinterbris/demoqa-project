@@ -1,3 +1,4 @@
+from demoqa_ui_tests.models.application import app
 from demoqa_ui_tests.models.pages.simple_student_registration_page import (
     SimpleRegistrationPage,
 )
@@ -6,27 +7,23 @@ from demoqa_ui_tests.test_data.users import student
 
 
 def test_successful_simple_user_registration():
-    registration_page = SimpleRegistrationPage()
-
-    registration_page.open()
+    app.simple_registration_page.open()
 
     # WHEN
-    registration_page.fill_form(student)
-    registration_page.submit_form()
+    app.simple_registration_page.fill_form(student)
+    app.simple_registration_page.submit_form()
 
     # THEN
-    registration_page.should_have_registered_user_data(student)
+    app.simple_registration_page.should_have_registered_user_data(student)
 
 
 def test_successful_user_registration():
-    registration_page = RegistrationPage()
-
-    registration_page.open()
+    app.registration_page.open()
 
     # WHEN
-    registration_page.fill_form(student)
-    registration_page.submit_form()
+    app.registration_page.fill_form(student)
+    app.registration_page.submit_form()
 
     # THEN
-    registration_page.should_have_registered_user_data(student)
-    registration_page.close_modal_window()
+    app.registration_page.should_have_registered_user_data(student)
+    app.registration_page.close_modal_window()
