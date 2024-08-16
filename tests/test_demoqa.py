@@ -1,5 +1,3 @@
-from selene import browser, have
-
 from demoqa_ui_tests.models.application import app
 from demoqa_ui_tests.test_data.users import student
 

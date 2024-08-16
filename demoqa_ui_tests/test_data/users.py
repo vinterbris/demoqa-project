@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-from demoqa_tests.data.users import student
-
 
 @dataclass
 class User:

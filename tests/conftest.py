@@ -1,7 +1,8 @@
+from pathlib import Path
+
 import pytest
 from selene import browser
 from selenium import webdriver
-from pathlib import Path
 
 user_data = Path().home() / 'my home profile'
 profile_dir = 'Default'

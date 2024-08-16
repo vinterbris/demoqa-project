@@ -1,4 +1,4 @@
-from selene import browser, have, be
+from selene import browser, have
 
 from demoqa_ui_tests.models.pages.main_page import MainPage
 
