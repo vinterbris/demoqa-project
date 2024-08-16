@@ -39,7 +39,7 @@ class SimpleRegistrationPage:
             )
         )
 
-    def fill(self, student):
+    def fill_form(self, student):
         self._enter_full_name(student.full_name)
         self._enter_email(student.email)
         self._enter_current_address(student.current_address)
