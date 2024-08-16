@@ -13,24 +13,7 @@ class RegistrationPage:
     def open(self):
         browser.open('/automation-practice-form')
 
-    def fill_form(self, student):
-        self.enter_name(student)
-        self._enter_last_name(student)
-        self._enter_email(student)
-        self.pick_gender(student)
-        self._enter_phone_number(student)
-
-        self.enter_birth_date(student)
-        self.enter_subjects(student)
-        self.enter_hobbies(student)
-
-        self.scroll_to_the_submit_button()
-
-        self.upload_picture(student)
-        self.enter_current_address(student)
-        self.pick_state_and_city(student)
-
-    def enter_name(self, student):
+    def _enter_name(self, student):
         browser.element('#firstName').type(student.name)
 
     def _enter_last_name(self, student):
@@ -39,7 +22,7 @@ class RegistrationPage:
     def _enter_email(self, student):
         browser.element('#userEmail').type(student.email)
 
-    def pick_gender(self, student):
+    def _pick_gender(self, student):
         browser.all('[name=gender]').element_by(have.value(student.gender)).element(
             '..'
         ).click()
@@ -47,29 +30,32 @@ class RegistrationPage:
     def _enter_phone_number(self, student):
         browser.element('#userNumber').type(student.phone_number)
 
-    def enter_birth_date(self, student):
+    def _enter_birth_date(self, student):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__year-select').type(student.year_of_birth)
         browser.element('.react-datepicker__month-select').type(student.month_of_birth)
         browser.element(f'.react-datepicker__day--0{student.day_of_birth}').click()
 
-    def enter_subjects(self, student):
+    def _enter_subjects(self, student):
         browser.element('#subjectsContainer').click()
         self.field_subjects.type(student.study_subject1).press_enter()
         self.field_subjects.type(student.study_subject2).press_enter()
 
-    def enter_hobbies(self, student):
+    def _enter_hobbies(self, student):
         self.checkboxes_hobbies.element_by(have.text('Sports')).click()
         self.checkboxes_hobbies.element_by(have.text('Reading')).click()
         self.checkboxes_hobbies.element_by(have.text('Music')).click()
 
-    def scroll_to_the_submit_button(self):
+    def _scroll_to_the_submit_button(self):
         self.button_submit.perform(command.js.scroll_into_view)
 
-    def enter_current_address(self, student):
+    def _upload_picture(self, student):
+        browser.element("#uploadPicture").set_value(resources.path(student.img_name))
+
+    def _enter_current_address(self, student):
         browser.element('#currentAddress').type(student.current_address)
 
-    def pick_state_and_city(self, student):
+    def _pick_state_and_city(self, student):
         browser.element('#react-select-3-input').type(student.state).press_enter()
         browser.element('#react-select-4-input').type(student.city).press_enter()
 
@@ -95,5 +81,19 @@ class RegistrationPage:
     def close_modal_window(self):
         browser.element('#closeLargeModal').with_(click_by_js=True)
 
-    def upload_picture(self, student):
-        browser.element("#uploadPicture").set_value(resources.path(student.img_name))
+    def fill_form(self, student):
+        self._enter_name(student)
+        self._enter_last_name(student)
+        self._enter_email(student)
+        self._pick_gender(student)
+        self._enter_phone_number(student)
+
+        self._enter_birth_date(student)
+        self._enter_subjects(student)
+        self._enter_hobbies(student)
+
+        self._scroll_to_the_submit_button()
+
+        self._upload_picture(student)
+        self._enter_current_address(student)
+        self._pick_state_and_city(student)
