@@ -1,28 +1,51 @@
-import os
-
 from selene import browser, command, have
-from selenium.webdriver import Keys
 
-import tests
-from demoqa_tests.test_data.data import full_name, email, address
-
-CURRENT_FILE = os.path.abspath(tests.__file__)
-CURRENT_DIR = os.path.dirname(CURRENT_FILE)
-RES_DIR = os.path.join(CURRENT_DIR, os.path.pardir, "resources/images")
+from demoqa_ui_tests import resources
+from demoqa_ui_tests.test_data.data import full_name, email, address
 
 
-def test_text_box():
-    browser.open('/text-box')
+class SimpleRegistrationPage:
+
+    def __init__(self): ...
+
+    def open(self):
+        browser.open('/text-box')
+
+    def enter_full_name(self, value):
+        browser.element('#userName').type(value)
+
+    def enter_email(self, value):
+        browser.element('#userEmail').type(value)
+
+    def enter_current_address(self, value):
+        browser.element('#currentAddress').type(value)
+
+    def enter_permanent_address(self, value):
+        browser.element('#permanentAddress').type(value)
+
+    def submit_form(self):
+        browser.element('#submit').perform(command.js.scroll_into_view).click()
+
+
+class RegistrationPage:
+
+    def __init__(self): ...
+
+
+def test_successful_simple_user_registration():
+    simple_registration_page = SimpleRegistrationPage()
+
+    simple_registration_page.open()
 
     # WHEN
-    browser.element('#userName').type(full_name)
-    browser.element('#userEmail').type(email)
-    browser.element('#currentAddress').type(address)
-    browser.element('#permanentAddress').type(address)
-    browser.element('#submit').perform(command.js.scroll_into_view).click()
+    simple_registration_page.enter_full_name(full_name)
+    simple_registration_page.enter_email(email)
+    simple_registration_page.enter_current_address(address)
+    simple_registration_page.enter_permanent_address(address)
+    simple_registration_page.submit_form()
 
     # THEN
-    browser.all('#output>div>p').should(
+    browser.all('#output p').should(
         have.texts(
             f'Name:{full_name}',
             f'Email:{email}',
@@ -32,7 +55,7 @@ def test_text_box():
     )
 
 
-def test_practice_form():
+def test_successful_user_registration():
     name = 'Ellend'
     last_name = 'Venture'
     gender = 'Male'
@@ -54,9 +77,7 @@ def test_practice_form():
     browser.element('#firstName').type(name)
     browser.element('#lastName').type(last_name)
     browser.element('#userEmail').type(email)
-
     browser.all('[name=gender]').element_by(have.value(gender)).element('..').click()
-
     browser.element('#userNumber').type(phone_number)
 
     browser.element('#dateOfBirthInput').click()
@@ -74,9 +95,7 @@ def test_practice_form():
 
     browser.element('#submit').perform(command.js.scroll_into_view)
 
-    browser.element("#uploadPicture").set_value(
-        os.path.abspath(os.path.join(RES_DIR, img_name))
-    )
+    browser.element("#uploadPicture").set_value(resources.path(img_name))
 
     browser.element('#currentAddress').type(address)
 
@@ -86,7 +105,7 @@ def test_practice_form():
     browser.element('#submit').click()
 
     # THEN
-    browser.element('.table').all('td:last-child').should(
+    browser.element('.modal-content').element('.table').all('td:last-child').should(
         have.exact_texts(
             ' '.join([name, last_name]),
             email,
