@@ -1,8 +1,6 @@
+from selene import browser, have
+
 from demoqa_ui_tests.models.application import app
-from demoqa_ui_tests.models.pages.simple_student_registration_page import (
-    SimpleRegistrationPage,
-)
-from demoqa_ui_tests.models.pages.student_registration_page import RegistrationPage
 from demoqa_ui_tests.test_data.users import student
 
 
@@ -27,3 +25,19 @@ def test_successful_user_registration():
     # THEN
     app.registration_page.should_have_registered_user_data(student)
     app.registration_page.close_modal_window()
+
+
+def test():
+    browser.open('/')
+    element_group = 'Elements'
+    menu_item = ''
+
+    current_element_group = browser.all('.header-text').element_by(
+        have.exact_text(element_group)
+    )
+    current_element_group.click()
+    # current_element_group.all()
+
+
+def test_main_page():
+    app.main_page.open_book_store_application()
