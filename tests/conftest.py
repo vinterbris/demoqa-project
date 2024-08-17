@@ -5,10 +5,9 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from config import Config
+import project
 from demoqa_ui_tests.utils import attach
 
-config = Config()
 
 CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
@@ -28,10 +27,10 @@ def browser_management(request):
     selenoid_url = request.config.getoption('--selenoid_url')
     selenoid_ui_url = request.config.getoption('--selenoid_ui_url')
 
-    browser.config.base_url = config.base_url
-    browser.config.timeout = config.timeout
-    browser.config.window_width = config.window_width
-    browser.config.window_height = config.window_height
+    browser.config.base_url = project.config.base_url
+    browser.config.timeout = project.config.timeout
+    browser.config.window_width = project.config.window_width
+    browser.config.window_height = project.config.window_height
 
     options = Options()
     options.page_load_strategy = 'eager'
