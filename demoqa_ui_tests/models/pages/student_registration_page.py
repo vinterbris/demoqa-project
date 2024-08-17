@@ -1,6 +1,6 @@
 from selene import browser, have, command
 
-from demoqa_ui_tests import resources
+from demoqa_ui_tests.utils import resources
 
 
 class RegistrationPage:
