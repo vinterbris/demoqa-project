@@ -1,13 +1,10 @@
 import pydantic_settings
-from dotenv import load_dotenv
 
 from demoqa_ui_tests.utils import path
 
-WEB_URL = 'https://demoqa.com'
-
 
 class Config(pydantic_settings.BaseSettings):
-    base_url: str = WEB_URL
+    base_url: str = 'https://demoqa.com'
     window_width: int = 1900
     window_height: int = 1080
     timeout: float = 2.0

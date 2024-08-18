@@ -8,13 +8,12 @@ from selenium.webdriver.chrome.options import Options
 import project
 from demoqa_ui_tests.utils import attach
 
-
 CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
 
 
 @pytest.fixture(scope='function', autouse=True)
-def browser_management(request):
+def browser_management():
     selenoid = project.config.selenoid
     browser_version = project.config.browser_version
     selenoid_url = project.config.selenoid_url + '/wd/hub'

@@ -45,6 +45,4 @@ def add_video(browser, selenoid_ui_url):
         + video_url
         + "' type='video/mp4'></video></body></html>"
     )
-    allure.attach(
-        html, 'video_' + browser.driver.session_id, AttachmentType.HTML, '.html'
-    )
+    allure.attach(html, 'video_' + browser.driver.session_id, AttachmentType.HTML, '.html')
