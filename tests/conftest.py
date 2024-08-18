@@ -13,19 +13,12 @@ CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
 
 
-def pytest_addoption(parser):
-    parser.addoption('--browser_version', default='127.0')
-    parser.addoption('--selenoid', default=False)
-    parser.addoption('--selenoid_url', default='http://localhost:4444')
-    parser.addoption('--selenoid_ui_url', default='http://localhost:8080')
-
-
 @pytest.fixture(scope='function', autouse=True)
 def browser_management(request):
-    browser_version = request.config.getoption('--browser_version')
-    run_selenoid = request.config.getoption('--selenoid')
-    selenoid_url = request.config.getoption('--selenoid_url')
-    selenoid_ui_url = request.config.getoption('--selenoid_ui_url')
+    selenoid = project.config.selenoid
+    browser_version = project.config.browser_version
+    selenoid_url = project.config.selenoid_url + '/wd/hub'
+    selenoid_ui_url = project.config.selenoid_ui_url
 
     browser.config.base_url = project.config.base_url
     browser.config.timeout = project.config.timeout
@@ -35,7 +28,7 @@ def browser_management(request):
     options = Options()
     options.page_load_strategy = 'eager'
 
-    if run_selenoid:
+    if selenoid:
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-extensions")
         options.add_argument('--no-sandbox')
@@ -49,9 +42,7 @@ def browser_management(request):
         }
         options.capabilities.update(selenoid_capabilities)
 
-        driver = webdriver.Remote(
-            command_executor=selenoid_url + "/wd/hub", options=options
-        )
+        driver = webdriver.Remote(command_executor=selenoid_url, options=options)
 
         browser.config.driver = driver
     else:
