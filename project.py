@@ -1,3 +1,4 @@
+import dotenv
 import pydantic_settings
 
 from demoqa_ui_tests.utils import path
@@ -15,4 +16,5 @@ class Config(pydantic_settings.BaseSettings):
     selenoid_ui_url: str = 'http://localhost:8080'
 
 
-config = Config(_env_file=path.relative_from_root('.env'))
+# config = Config(_env_file=path.relative_from_root('.env'))
+config = Config(_env_file=dotenv.find_dotenv())
