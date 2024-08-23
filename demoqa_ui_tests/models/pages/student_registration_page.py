@@ -1,5 +1,6 @@
 from selene import browser, have, command
 
+from demoqa_ui_tests.plugins.allure.report import step
 from demoqa_ui_tests.utils import resources
 
 
@@ -10,6 +11,7 @@ class RegistrationPage:
         self.checkboxes_hobbies = browser.all('[for^=hobbies-checkbox]')
         self.field_subjects = browser.element('#subjectsInput')
 
+    @step
     def open(self):
         browser.open('/automation-practice-form')
 
@@ -59,9 +61,11 @@ class RegistrationPage:
         browser.element('#react-select-3-input').type(student.state).press_enter()
         browser.element('#react-select-4-input').type(student.city).press_enter()
 
+    @step
     def submit_form(self):
         self.button_submit.click()
 
+    @step
     def should_have_registered_user_data(self, student):
         browser.element('.modal-content').element('.table').all('td:last-child').should(
             have.exact_texts(
@@ -78,9 +82,11 @@ class RegistrationPage:
             )
         )
 
+    @step
     def close_modal_window(self):
         browser.element('#closeLargeModal').with_(click_by_js=True)
 
+    @step
     def fill_form(self, student):
         self._enter_name(student)
         self._enter_last_name(student)

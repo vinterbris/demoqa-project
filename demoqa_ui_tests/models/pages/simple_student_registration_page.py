@@ -11,24 +11,31 @@ class SimpleRegistrationPage:
         self.button_submit = browser.element('#submit')
         self.table = browser.all('#output p')
 
+    # @step
     def open(self):
         browser.open('/text-box')
 
+    #     @step
     def _enter_full_name(self, value):
         self.full_name.type(value)
 
+    #     @step
     def _enter_email(self, value):
         self.email.type(value)
 
+    #     @step
     def _enter_current_address(self, value):
         self.current_address.type(value)
 
+    #     @step
     def _enter_permanent_address(self, value):
         self.permanent_address.type(value)
 
+    #     @step
     def submit_form(self):
         self.button_submit.perform(command.js.scroll_into_view).click()
 
+    #     @step
     def should_have_registered_user_data(self, student):
         self.table.should(
             have.texts(
@@ -39,6 +46,7 @@ class SimpleRegistrationPage:
             )
         )
 
+    # @step
     def fill_form(self, student):
         self._enter_full_name(student.full_name)
         self._enter_email(student.email)
