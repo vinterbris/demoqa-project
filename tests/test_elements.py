@@ -23,35 +23,10 @@ def test_successful_simple_user_registration():
 
 
 @allure.tag("web")
-@allure.severity(Severity.BLOCKER)
-@allure.label("owner", "dobrovolskiysv")
-@allure.feature("Регистрация")
-@allure.story("Полная регистрация")
-def test_successful_user_registration():
-    app.side_panel.open_registration_form()
-
-    # WHEN
-    app.registration_page.fill_form(student)
-    app.registration_page.submit_form()
-
-    # THEN
-    app.registration_page.should_have_registered_user_data(student)
-    app.registration_page.close_modal_window()
-
-
-@allure.tag("web")
 @allure.severity(Severity.TRIVIAL)
 @allure.label("owner", "dobrovolskiysv")
 @allure.feature("Элементы")
-@allure.story("Radio button")
-def test_radio_button_yes():
-    app.side_panel.open_radio_button_page()
-
-    app.radio_button_page.click_yes()
-
-    app.radio_button_page.should_have_text('Yes')
-
-
+@allure.story("Check box")
 def test_check_notes():
     app.side_panel.open_check_box_page()
 
@@ -73,3 +48,16 @@ def test_check_notes():
 #     app.check_box_page.choose_home()
 #
 #     app.check_box_page.
+
+
+@allure.tag("web")
+@allure.severity(Severity.TRIVIAL)
+@allure.label("owner", "dobrovolskiysv")
+@allure.feature("Элементы")
+@allure.story("Radio button")
+def test_radio_button_yes():
+    app.side_panel.open_radio_button_page()
+
+    app.radio_button_page.click_yes()
+
+    app.radio_button_page.should_have_text('Yes')
