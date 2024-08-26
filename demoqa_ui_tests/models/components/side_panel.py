@@ -29,3 +29,7 @@ class SidePanel:
     @step
     def open_registration_form(self):
         self._open('Forms', 'Practice Form')
+
+    @step
+    def open_web_tables_form(self):
+        self._open('Elements', 'Web Tables')

@@ -6,6 +6,7 @@ from demoqa_ui_tests.models.pages.simple_student_registration_page import (
     SimpleRegistrationPage,
 )
 from demoqa_ui_tests.models.pages.student_registration_page import RegistrationPage
+from demoqa_ui_tests.models.pages.web_tables import WebTables
 
 
 class Application:
@@ -17,6 +18,7 @@ class Application:
         self.registration_page = RegistrationPage()
         self.radio_button_page = RadioButtonPage()
         self.check_box_page = CheckBox()
+        self.web_tables = WebTables()
 
 
 app = Application()
