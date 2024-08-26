@@ -2,8 +2,8 @@
 
 
 import collections
-import re
 import inspect
+import re
 from functools import wraps, reduce
 
 from allure_commons import plugin_manager
