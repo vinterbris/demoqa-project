@@ -23,7 +23,7 @@ def test_successful_simple_user_registration():
 
 
 @allure.tag("web")
-@allure.severity(Severity.TRIVIAL)
+@allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
 @allure.feature("Элементы")
 @allure.story("Check box")
@@ -33,7 +33,7 @@ def test_check_notes():
     # WHEN
     app.check_box_page.toggle_home()
     app.check_box_page.toggle_desktop()
-    app.check_box_page.choose_notes()
+    app.check_box_page.choose_checkbox('Notes')
 
     # THEN
     app.check_box_page.should_be_half_checked('Home')
@@ -42,12 +42,37 @@ def test_check_notes():
     app.check_box_page.should_have_selections('notes')
 
 
-# def test_check_home():
-#     app.side_panel.open_check_box_page()
-#
-#     app.check_box_page.choose_home()
-#
-#     app.check_box_page.
+@allure.tag("web")
+@allure.severity(Severity.NORMAL)
+@allure.label("owner", "dobrovolskiysv")
+@allure.feature("Элементы")
+@allure.story("Radio button")
+def test_check_home():
+    app.side_panel.open_check_box_page()
+
+    app.check_box_page.choose_checkbox('Home')
+
+    app.check_box_page.expand_list()
+    app.check_box_page.should_all_be_ckecked()
+    app.check_box_page.should_have_selections(
+        'home',
+        'desktop',
+        'notes',
+        'commands',
+        'documents',
+        'workspace',
+        'react',
+        'angular',
+        'veu',
+        'office',
+        'public',
+        'private',
+        'classified',
+        'general',
+        'downloads',
+        'wordFile',
+        'excelFile',
+    )
 
 
 @allure.tag("web")

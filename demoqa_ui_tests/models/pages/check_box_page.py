@@ -29,26 +29,25 @@ class CheckBox:
         browser.element('[title="Collapse all"]').click()
 
     @step
-    def choose_home(self):
-        browser.element('#tree-node-home').click()
-
-    @step
-    def choose_notes(self):
-        # self.expand_all.click()
-        browser.all('.rct-title').element_by(have.text('Notes')).click()
+    def choose_checkbox(self, value):
+        browser.all('.rct-title').element_by(have.text(value)).click()
 
     @step
     def should_be_checked(self, value):
         browser.all('.rct-text').element_by(have.text(value)).element(
             '.rct-icon-check'
-        ).matching(be.present)
+        ).should(be.present)
 
     @step
     def should_be_half_checked(self, value):
         browser.all('.rct-text').element_by(have.text(value)).element(
             '.rct-icon-half-check'
-        ).matching(be.present)
+        ).should(be.present)
+
+    @step
+    def should_all_be_ckecked(self):
+        browser.all('.rct-icon-check').should(have.size(17))
 
     @step
     def should_have_selections(self, *checkboxes):
-        browser.element('#result').should(have.text(*checkboxes))
+        browser.all('#result .text-success').should(have.texts(*checkboxes))
