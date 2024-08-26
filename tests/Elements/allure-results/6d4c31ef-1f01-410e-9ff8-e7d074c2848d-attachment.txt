@@ -1,2 +1,0 @@
-{'level': 'SEVERE', 'message': 'https://ad.plus/adplus-advertising.svg - Failed to load resource: net::ERR_BLOCKED_BY_CLIENT', 'source': 'network', 'timestamp': 1724685327303}
-{'level': 'SEVERE', 'message': 'https://cdn.ad.plus/player/adplus.js - Failed to load resource: net::ERR_BLOCKED_BY_CLIENT', 'source': 'network', 'timestamp': 1724685327793}
