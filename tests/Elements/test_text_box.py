@@ -8,6 +8,7 @@ from demoqa_ui_tests.test_data.users import simple_student
 @allure.tag("web")
 @allure.severity(Severity.BLOCKER)
 @allure.label("owner", "dobrovolskiysv")
+@allure.epic("Элементы")
 @allure.feature("Регистрация")
 @allure.story("Короткая регистрация")
 def test_successful_simple_user_registration():

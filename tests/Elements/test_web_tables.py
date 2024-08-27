@@ -9,6 +9,7 @@ from demoqa_ui_tests.test_data.users import worker
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
+@allure.epic("Элементы")
 @allure.feature("Таблица")
 @allure.story("Удаление")
 def test_delete_person():
@@ -22,6 +23,7 @@ def test_delete_person():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
+@allure.epic("Элементы")
 @allure.feature("Таблица")
 @allure.story("Поиск")
 def test_search_person():
@@ -36,6 +38,7 @@ def test_search_person():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
+@allure.epic("Элементы")
 @allure.feature("Таблица")
 @allure.story("Добавление")
 def test_add_person():
@@ -49,6 +52,7 @@ def test_add_person():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
+@allure.epic("Элементы")
 @allure.feature("Таблица")
 @allure.story("Редактирование")
 def test_edit_person():
