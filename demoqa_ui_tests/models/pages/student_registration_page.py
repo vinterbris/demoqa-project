@@ -1,6 +1,5 @@
 from selene import browser, have, command
 
-import demoqa_ui_tests.test_data.names
 from demoqa_ui_tests.plugins.allure.report import step
 from demoqa_ui_tests.utils import resources
 

@@ -9,14 +9,12 @@ from demoqa_ui_tests.test_data.users import simple_student
 @allure.severity(Severity.BLOCKER)
 @allure.label("owner", "dobrovolskiysv")
 @allure.epic("Элементы")
-@allure.feature("Регистрация")
-@allure.story("Короткая регистрация")
+@allure.feature("Text Box")
+@allure.story("Простая регистрация")
 def test_successful_simple_user_registration():
     app.side_panel.open_simple_registration_form()
 
-    # WHEN
     app.simple_registration_page.fill_form(simple_student)
     app.simple_registration_page.submit_form()
 
-    # THEN
     app.simple_registration_page.should_have_registered_user_data(simple_student)
