@@ -1,7 +1,7 @@
 from selene import browser, have
 
-from demoqa_ui_tests.models.pages.main_page import MainPage
-from demoqa_ui_tests.plugins.allure.report import step
+from demoqa_tests.models.pages.main_page import MainPage
+from demoqa_tests.plugins.allure.report import step
 
 
 class SidePanel:

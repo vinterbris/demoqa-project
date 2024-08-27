@@ -1,7 +1,7 @@
 from selene import browser, have, command
 
-from demoqa_ui_tests.plugins.allure.report import step
-from demoqa_ui_tests.utils import resources
+from demoqa_tests.plugins.allure.report import step
+from demoqa_tests.utils import resources
 
 
 class RegistrationPage:

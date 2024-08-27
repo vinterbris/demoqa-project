@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 import project
-from demoqa_ui_tests.utils import attach
+from demoqa_tests.utils import attach
 
 CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
@@ -20,13 +20,13 @@ def add_reporting_to_selene_steps():
     :return:
     '''
 
-    from demoqa_ui_tests.plugins.python import monkey
+    from demoqa_tests.plugins.python import monkey
 
     original_open = Browser.open
 
     @monkey.patch_method_in(Browser)
     def open(self, relative_or_absolute_url: str):
-        from demoqa_ui_tests.plugins.allure import report
+        from demoqa_tests.plugins.allure import report
 
         return report.step(original_open)(self, relative_or_absolute_url)
 

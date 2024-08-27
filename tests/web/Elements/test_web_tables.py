@@ -1,9 +1,9 @@
 import allure
 from allure_commons.types import Severity
 
-from demoqa_ui_tests.models.application import app
-from demoqa_ui_tests.test_data.names import name, names
-from demoqa_ui_tests.test_data.users import worker
+from demoqa_tests.models.application import app
+from demoqa_tests.test_data.names import name, names
+from demoqa_tests.test_data.users import worker
 
 
 @allure.tag("web")

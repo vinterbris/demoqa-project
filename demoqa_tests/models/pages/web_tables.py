@@ -1,7 +1,7 @@
 from selene import browser, have
 from selene.support.conditions import be
 
-from demoqa_ui_tests.plugins.allure.report import step
+from demoqa_tests.plugins.allure.report import step
 
 
 class WebTables:

@@ -1,6 +1,6 @@
 from selene import browser, have, be
 
-from demoqa_ui_tests.plugins.allure.report import step
+from demoqa_tests.plugins.allure.report import step
 
 
 class RadioButtonPage:

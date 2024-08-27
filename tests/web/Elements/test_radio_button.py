@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 
-from demoqa_ui_tests.models.application import app
+from demoqa_tests.models.application import app
 
 
 @allure.tag("web")
