@@ -7,8 +7,9 @@ from demoqa_ui_tests.models.application import app
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
-@allure.feature("Элементы")
-@allure.story("Check box")
+@allure.epic("Элементы")
+@allure.feature("Check box")
+@allure.story("Отметить одну конечную ноду")
 def test_check_notes():
     app.side_panel.open_check_box_page()
 
@@ -27,8 +28,9 @@ def test_check_notes():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
-@allure.feature("Элементы")
-@allure.story("Check box")
+@allure.epic("Элементы")
+@allure.feature("Check box")
+@allure.story("Отметить корневую ноду")
 def test_check_home():
     app.side_panel.open_check_box_page()
 
@@ -60,8 +62,9 @@ def test_check_home():
 @allure.tag("web")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "dobrovolskiysv")
-@allure.feature("Элементы")
-@allure.story("Check box")
+@allure.epic("Элементы")
+@allure.feature("Check box")
+@allure.story("Снять флаг с корневой ноды")
 def test_uncheck_all():
     app.side_panel.open_check_box_page()
 
