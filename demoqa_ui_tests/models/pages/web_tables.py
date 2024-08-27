@@ -1,3 +1,5 @@
+import time
+
 from selene import browser, have
 from selene.support.conditions import be
 
@@ -18,7 +20,7 @@ class WebTables:
 
     @step
     def find_person(self, first_name):
-        browser.element('#searchBox').type(first_name)
+        browser.element('#searchBox').click().type(first_name)
 
     @step
     def add_person(self, worker):
@@ -37,14 +39,14 @@ class WebTables:
 
     @step
     def other_rows_should_have_no_peope(self, *names):
-        browser.all('.rt-tr .rt-td:first-child').element_by(
+        browser.all('.rt-tr-group .rt-td:first-child').element_by(
             have.exact_texts(*names)
         ).should(be.absent)
 
     @step
     def should_be_added(self, worker):
         self.find_person(worker.fist_name)
-        browser.all('//*[@class="rt-tr-group"][1]').all('.rt-td').should(
+        browser.all('.rt-tr-group').first.all('.rt-td').should(
             have.exact_texts(
                 worker.fist_name,
                 worker.last_name,

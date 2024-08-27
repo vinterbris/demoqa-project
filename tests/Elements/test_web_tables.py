@@ -38,7 +38,7 @@ def test_search_person():
 @allure.label("owner", "dobrovolskiysv")
 @allure.feature("Таблица")
 @allure.story("Добавление")
-def test_search_person():
+def test_add_person():
     app.side_panel.open_web_tables_form()
 
     app.web_tables.add_person(worker)
