@@ -43,7 +43,17 @@ def test_add_person():
 
     app.web_tables.add_person(worker)
 
-    app.web_tables.should_be_added(worker)
+    app.web_tables.should_exist(worker)
 
 
-# edit
+@allure.tag("web")
+@allure.severity(Severity.NORMAL)
+@allure.label("owner", "dobrovolskiysv")
+@allure.feature("Таблица")
+@allure.story("Редактирование")
+def test_edit_person():
+    app.side_panel.open_web_tables_form()
+
+    app.web_tables.edit_person(worker)
+
+    app.web_tables.should_exist(worker)

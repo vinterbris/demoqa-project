@@ -34,6 +34,17 @@ class WebTables:
         browser.element('#submit').click()
 
     @step
+    def edit_person(self, worker):
+        browser.element('#edit-record-1').click()
+        browser.element('#firstName').set_value(worker.fist_name)
+        browser.element('#lastName').set_value(worker.last_name)
+        browser.element('#userEmail').set_value(worker.email)
+        browser.element('#age').set_value(worker.age)
+        browser.element('#salary').set_value(worker.salary)
+        browser.element('#department').set_value(worker.department)
+        browser.element('#submit').click()
+
+    @step
     def should_be_found(self, first_name):
         browser.all('.rt-td').element_by(have.exact_text(first_name)).should(be.present)
 
@@ -44,7 +55,7 @@ class WebTables:
         ).should(be.absent)
 
     @step
-    def should_be_added(self, worker):
+    def should_exist(self, worker):
         self.find_person(worker.fist_name)
         browser.all('.rt-tr-group').first.all('.rt-td').should(
             have.exact_texts(
