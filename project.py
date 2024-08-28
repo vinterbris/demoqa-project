@@ -31,7 +31,6 @@ class Config(pydantic_settings.BaseSettings):
 
     login: str = None
     password: str = None
-    user_id: str = None
 
 
 config = Config(_env_file=dotenv.find_dotenv())
