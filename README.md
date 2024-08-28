@@ -46,6 +46,9 @@
 
 
 ## Запуск тестов
+
+> Для тестов API требуется <a href="https://demoqa.com/register">регистрация</a> в Book Store Application и заполнение login\password в .env 
+
 ### Локально
 
 1. Клонировать репозиторий 
@@ -77,6 +80,7 @@ allure serve
 ```
 SELENOID=True
 BROWSER_VERSION=127.0
+SELENOID_URL=http://localhost:4444
 ```
 
 ## Оповещения в мессенджер
