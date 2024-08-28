@@ -16,7 +16,7 @@ class Config(pydantic_settings.BaseSettings):
     selenoid: bool = False
     browser_version: str = '127.0'
     selenoid_url: str = 'http://localhost:4444'
-    selenoid_ui_url: str = 'http://localhost:8080'
+    # selenoid_ui_url: str = 'http://localhost:8080'
 
     remote_url: Optional[str] = None
     remote_version: Optional[str] = None

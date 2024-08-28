@@ -20,6 +20,7 @@ def test_successful_authorization():
     assert response.status_code == 200
     assert body == True
 
+
 @allure.tag("api")
 @allure.severity(Severity.BLOCKER)
 @allure.label("owner", "dobrovolskiysv")
@@ -36,6 +37,7 @@ def test_failed_authorization():
     assert body['code'] == '1207'
     assert body['message'] == 'User not found!'
 
+
 @allure.tag("api")
 @allure.severity(Severity.BLOCKER)
 @allure.label("owner", "dobrovolskiysv")
@@ -50,6 +52,7 @@ def test_authorization_without_credentials():
     assert response.status_code == 400
     assert body['code'] == '1200'
     assert body['message'] == 'UserName and Password required.'
+
 
 @allure.tag("api")
 @allure.severity(Severity.BLOCKER)
@@ -68,6 +71,7 @@ def test_successful_token_generation():
     assert body.get('expires') is not None
     assert body['status'] == 'Success'
     assert body['result'] == 'User authorized successfully.'
+
 
 @allure.tag("api")
 @allure.severity(Severity.BLOCKER)

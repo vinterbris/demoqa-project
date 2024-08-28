@@ -36,7 +36,7 @@ def browser_management():
     selenoid = project.config.selenoid
     browser_version = project.config.browser_version
     selenoid_url = project.config.selenoid_url + '/wd/hub'
-    selenoid_ui_url = project.config.selenoid_ui_url
+    selenoid_ui_url = project.config.selenoid_url
 
     browser.config.base_url = project.config.base_url
     browser.config.timeout = project.config.timeout
