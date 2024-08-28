@@ -29,6 +29,10 @@ class Config(pydantic_settings.BaseSettings):
     hold_browser_open: bool = False
     save_page_source_on_failure: bool = True
 
+    login: str = None
+    password: str = None
+    user_id: str = None
+
 
 config = Config(_env_file=dotenv.find_dotenv())
 
