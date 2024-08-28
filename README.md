@@ -1,7 +1,6 @@
-<h1 align="center">Проект UI и API тестов <a href="demoqa.com">demoqa.com</a></h1>
-
+<h1 align="center">Проект UI и API тестов <a href="demoqa.com">demoqa.com</a>
 <a href="respublica.ru"> <img src="resources/images/Toolsqa.jpg" width="" height="70"> </a>
-
+</h1>
 
 <h3 align="center">Python | Pytest | Selene | Requests | Jenkins | Selenoid | Allure | Telegram</h3>
 <h3 align="center">
