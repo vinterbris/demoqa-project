@@ -16,7 +16,7 @@
 </h3>
 
 ---
-> <a target="_blank" href="http://176.123.163.26:8888/job/demoqa_ui_tests/">Ссылка на проект в Jenkins</a>
+> <a target="_blank" href="http://176.123.163.26:8888/job/demoqa_ui_tests/">Ссылка на проект в мой Jenkins: доступны прогоны и allure отчёты</a>
 
 ### Реализованы тесты:
 #### UI
