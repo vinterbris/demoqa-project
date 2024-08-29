@@ -96,3 +96,7 @@ SELENOID_URL=http://localhost:4444
 > _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost, Rocket.Chat_
 
 <img src="resources/images/screenshot_telegram.png" width="450" height="">
+
+## Пример запуска тестов
+file:///home/vinterbris/Downloads/56ee904dc1d15a7bcfe00701f5e45981.mp4
+file:///home/vinterbris/Downloads/be1aecb5761d710ac78434b516ec1dce.mp4
