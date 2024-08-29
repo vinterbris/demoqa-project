@@ -98,5 +98,7 @@ SELENOID_URL=http://localhost:4444
 <img src="resources/images/screenshot_telegram.png" width="450" height="">
 
 ## Пример запуска тестов
-file:///home/vinterbris/Downloads/56ee904dc1d15a7bcfe00701f5e45981.mp4
-file:///home/vinterbris/Downloads/be1aecb5761d710ac78434b516ec1dce.mp4
+
+https://github.com/user-attachments/assets/d40a9480-4900-438c-a629-ce089f96a800
+
+https://github.com/user-attachments/assets/01dbf222-e13e-49aa-be03-df138a8f8eea
