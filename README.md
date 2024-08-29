@@ -91,6 +91,10 @@ BROWSER_VERSION=127.0
 SELENOID_URL=http://localhost:4444
 ```
 
+## Пример отчёта
+
+<img src="resources/images/screenshot_allure.png" width="" height="450">
+
 ## Оповещения в мессенджер
 
 > _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost, Rocket.Chat_
