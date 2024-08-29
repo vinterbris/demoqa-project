@@ -65,17 +65,24 @@ source .venv/bin/activate
 ```
 pip install -r requirements.txt 
 ```
-4. Запустить командой
+
+5. Запустить командой
 ```bash
 pytest
 ```
 
 #### Получение отчета allure
-```bazaar
+```bash
 allure serve
 ```
 
-### Удалённо
+### Локально через удалённый Selenoid
+Создаём в корневой директории файл .env и вносим в него логин и пароль для магазина. 
+
+```bash
+cp .env.example .env
+```
+
 В .env включаем selenoid, указываем доступную на нём версию браузера и его url
 
 ```
