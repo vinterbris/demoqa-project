@@ -1,83 +1,93 @@
 <h1 align="center">Проект UI и API тестов <a href="demoqa.com">demoqa.com</a></h1>
-<h1 align="center"><a href="respublica.ru"> <img src="resources/images/Toolsqa.jpg" width="" height="70"> </a>
+<h1 align="center"><a href="demoqa.com"> <img src="resources/images/Toolsqa.jpg" width="" height="70"> </a>
 </h1>
-
 
 <h3 align="center">Python | Pytest | Selene | Requests | Jenkins | Selenoid | Allure | Telegram</h3>
 <h3 align="center">
-<img height="50" src="resources/images/Python.png"/>      &nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/Pytest.svg"/>      &nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/Selene.png"/>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/requests.png"/>      &nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/jenkins.png"/>     &nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/Selenoid.svg"/>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/allure.png"/>      &nbsp;&nbsp;&nbsp;&nbsp;
-<img height="50" src="resources/images/telegram.png"/>
+<img height="50" src="resources/icons/Python.png"/>          
+<img height="50" src="resources/icons/Pytest.svg"/>          
+<img height="50" src="resources/icons/Selene.png"/>           
+<img height="50" src="resources/icons/requests.png"/>          
+<img height="50" src="resources/icons/jenkins.png"/>         
+<img height="50" src="resources/icons/Selenoid.svg"/>         
+<img height="50" src="resources/icons/allure.png"/>          
+<img height="50" src="resources/icons/telegram.png"/>
 </h3>
 
 ---
+
 > <a target="_blank" href="http://176.123.163.26:8888/job/demoqa_ui_tests/">Ссылка на проект в мой Jenkins: доступны прогоны и allure отчёты</a>
 
 ### Реализованы тесты:
+
 #### UI
+
 ##### Elements
-- [x] [Text Box] Простая регистрация 
-- [x] [Check Box] Выбор корневой ноды
-- [x] [Check Box] Выбор конечной ноды
-- [x] [Check Box] Выбор снятие флага с корневой ноды
-- [x] [Radio Button] Выбор 
-- [x] [Radio Button] Переключение выбора
-- [x] [Web Tables] Добавление записи
-- [x] [Web Tables] Редактирование записи
-- [x] [Web Tables] Поиск записи
-- [x] [Web Tables] Удаление записи
+
+- [X] [Text Box] Простая регистрация
+- [X] [Check Box] Выбор корневой ноды
+- [X] [Check Box] Выбор конечной ноды
+- [X] [Check Box] Выбор снятие флага с корневой ноды
+- [X] [Radio Button] Выбор
+- [X] [Radio Button] Переключение выбора
+- [X] [Web Tables] Добавление записи
+- [X] [Web Tables] Редактирование записи
+- [X] [Web Tables] Поиск записи
+- [X] [Web Tables] Удаление записи
+
 ##### Forms
-- [x] Полная регистрация 
+
+- [X] Полная регистрация
 
 #### API
-- [x] Успешная авторизация
-- [x] Проваленная авторизация
-- [x] Авторизация без данных входа
-- [x] Авторизация без данных входа
-- [x] Успешная генерация токена
-- [x] Проваленная генерация токена
 
-
-
-
+- [X] Успешная авторизация
+- [X] Проваленная авторизация
+- [X] Авторизация без данных входа
+- [X] Авторизация без данных входа
+- [X] Успешная генерация токена
+- [X] Проваленная генерация токена
 
 ## Запуск тестов
 
-> Для тестов API требуется <a href="https://demoqa.com/register">регистрация</a> в Book Store Application и заполнение login\password в .env 
+> Для тестов API требуется <a href="https://demoqa.com/register">регистрация</a> в Book Store Application и заполнение login\password в .env
 
 ### Локально
 
-1. Клонировать репозиторий 
+1. Клонировать репозиторий
+
 ```bash
 git clone https://github.com/vinterbris/demoqa-project.git
 ```
+
 2. В терминале в директории проекта создать и активировать виртуальное окружение
+
 ```bash
 python -m venv .venv 
-source .venv/bin/activate 
+source .venv/bin/activate
 ```
+
 3. Установить зависимости
+
 ```
-pip install -r requirements.txt 
+pip install -r requirements.txt
 ```
 
 5. Запустить командой
+
 ```bash
 pytest
 ```
 
 #### Получение отчета allure
+
 ```bash
 allure serve
 ```
 
 ### Локально через удалённый Selenoid
-Создаём в корневой директории файл .env и вносим в него логин и пароль для магазина. 
+
+Создаём в корневой директории файл .env и вносим в него логин и пароль для магазина.
 
 ```bash
 cp .env.example .env
@@ -94,6 +104,10 @@ SELENOID_URL=http://localhost:4444
 ## Пример отчёта
 
 <img src="resources/images/screenshot_allure.png" width="" height="450">
+
+Автогенерация названий шагов в allure из названий функций
+
+![allure](resources/images/screenshot_allure_steps.png)
 
 ## Оповещения в мессенджер
 
