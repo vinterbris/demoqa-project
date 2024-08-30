@@ -113,7 +113,7 @@ SELENOID_URL=http://localhost:4444
 
 > _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost, Rocket.Chat_
 
-![allure](resources/images/screenshot_telegram.png)
+<img src="resources/images/screenshot_telegram.png" width="450" height="">
 
 ## Пример запуска тестов
 
