@@ -103,7 +103,7 @@ SELENOID_URL=http://localhost:4444
 
 ## Пример отчёта
 
-<img src="resources/images/screenshot_allure.png" width="" height="450">
+![allure](resources/images/screenshot_allure.png)
 
 Автогенерация названий шагов в allure из названий функций
 
@@ -113,7 +113,7 @@ SELENOID_URL=http://localhost:4444
 
 > _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost, Rocket.Chat_
 
-<img src="resources/images/screenshot_telegram.png" width="450" height="">
+![allure](resources/images/screenshot_telegram.png)
 
 ## Пример запуска тестов
 
