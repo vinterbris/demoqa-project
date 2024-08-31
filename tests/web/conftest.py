@@ -7,7 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 import project
-from demoqa_tests.utils import attach
+from demoqa_tests.utils import attach, supported
+from project import config
 
 CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
@@ -33,23 +34,30 @@ def add_reporting_to_selene_steps():
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    selenoid = project.config.selenoid
-    browser_version = project.config.browser_version
-    selenoid_url = project.config.selenoid_url + '/wd/hub'
-    selenoid_ui_url = project.config.selenoid_url
 
     browser.config.base_url = project.config.base_url
     browser.config.timeout = project.config.timeout
     browser.config.window_width = project.config.window_width
     browser.config.window_height = project.config.window_height
-
-    options = Options()
-    options.page_load_strategy = 'eager'
+    browser.config.save_page_source_on_failure = (
+        project.config.save_page_source_on_failure
+    )
     browser.config._wait_decorator = support._logging.wait_with(
         context=allure_commons._allure.StepContext
     )
 
-    if selenoid:
+    if project.config.browser_name == supported.chrome:
+        options = webdriver.ChromeOptions()
+
+    if project.config.browser_name == supported.firefox:
+        options = webdriver.FirefoxOptions()
+
+    if project.config.headless:
+        options.add_argument('--headless=new')
+
+    options.page_load_strategy = 'eager'
+
+    if project.config.selenoid:
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-extensions")
         options.add_argument('--no-sandbox')
@@ -57,13 +65,17 @@ def browser_management():
         options.add_argument('--disable-gpu')
         options.add_argument("--disable-dev-shm-usage")
         selenoid_capabilities = {
-            "browserName": 'chrome',
-            "browserVersion": browser_version,
-            "selenoid:options": {"enableVNC": True, "enableVideo": True},
+            "browserName": project.config.browser_name,
+            "browserVersion": project.config.browser_version,
+            "selenoid:options": {
+                "enableVideo": project.config.remote_enableVideo,
+            },
         }
         options.capabilities.update(selenoid_capabilities)
 
-        driver = webdriver.Remote(command_executor=selenoid_url, options=options)
+        driver = webdriver.Remote(
+            command_executor=project.config.selenoid_url + '/wd/hub', options=options
+        )
 
         browser.config.driver = driver
     else:
@@ -75,6 +87,6 @@ def browser_management():
     attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_html(browser)
-    attach.add_video(browser, selenoid_ui_url)
+    attach.add_video(browser, project.config.selenoid_url)
 
     browser.quit()

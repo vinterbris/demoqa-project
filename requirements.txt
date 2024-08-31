@@ -5,6 +5,7 @@ python-dotenv==1.0.1
 pydantic==2.7.3
 pydantic-settings==2.3.4
 black==24.8.0
+pytest-xdist==3.6.1
 
 requests==2.32.3
 curlify==2.2.1
