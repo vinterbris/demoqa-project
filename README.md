@@ -4,19 +4,13 @@
 
 <h3 align="center">Python | Pytest | Selene | Requests | Jenkins | Selenoid | Allure | Telegram</h3>
 <h3 align="center">
-<img height="50" src="resources/icons/Python.png"/>          
-<img height="50" src="resources/icons/Pytest.svg"/>          
-<img height="50" src="resources/icons/Selene.png"/>           
-<img height="50" src="resources/icons/requests.png"/>          
-<img height="50" src="resources/icons/jenkins.png"/>         
-<img height="50" src="resources/icons/Selenoid.svg"/>         
-<img height="50" src="resources/icons/allure.png"/>          
-<img height="50" src="resources/icons/telegram.png"/>
+<img height="50" src="resources/icons/Python.png"/><img height="50" src="resources/icons/Pytest.svg"/><img height="50" src="resources/icons/Selene.png"/><img height="50" src="resources/icons/requests.png"/><img height="50" src="resources/icons/jenkins.png"/><img height="50" src="resources/icons/Selenoid.svg"/><img height="50" src="resources/icons/allure.png"/><img height="50" src="resources/icons/telegram.png"/>
 </h3>
 
 ---
 
-> <a target="_blank" href="http://176.123.163.26:8888/job/demoqa_ui_tests/">Ссылка на проект в мой Jenkins: доступны прогоны и allure отчёты</a>
+> <a target="_blank" href="http://176.123.163.26:8888/job/demoqa_ui_tests/">Ссылка на проект в мой Jenkins: доступны
+> прогоны и allure отчёты</a>
 
 ### Реализованы тесты:
 
@@ -50,7 +44,8 @@
 
 ## Запуск тестов
 
-> Для тестов API требуется <a href="https://demoqa.com/register">регистрация</a> в Book Store Application и заполнение login\password в .env
+> Для тестов API требуется <a href="https://demoqa.com/register">регистрация</a> в Book Store Application и заполнение
+> login\password в .env
 
 ### Локально
 
@@ -111,7 +106,8 @@ SELENOID_URL=http://localhost:4444
 
 ## Оповещения в мессенджер
 
-> _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost, Rocket.Chat_
+> _Настроена отправка оповещений в телеграм канал. Возможна настройка для Email,Slack, Discord, Skype, Mattermost,
+Rocket.Chat_
 
 <img src="resources/images/screenshot_telegram.png" width="450" height="">
 

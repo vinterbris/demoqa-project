@@ -4,11 +4,9 @@ import allure_commons
 import pytest
 from selene import browser, support, Browser
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 import project
 from demoqa_tests.utils import attach, supported
-from project import config
 
 CHROME_PROFILE_WITH_UBLOCK = Path().home()
 PROFILE_DIR = 'Default'
