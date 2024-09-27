@@ -1,8 +1,12 @@
 import allure
 from allure_commons.types import Severity
 
-from demoqa_tests.test_data.api_users import valid_credentials, invalid_credentials
+import project
+from demoqa_tests.test_data.api_users import valid_credentials
 from demoqa_tests.utils.http_logger import send_request
+from faker import Faker
+
+fake = Faker()
 
 
 @allure.tag("api")
@@ -27,8 +31,8 @@ def test_successful_authorization():
 @allure.epic("Аккаунт")
 @allure.feature("Авторизация")
 @allure.story("Проваленная")
-def test_failed_authorization():
-    data = invalid_credentials
+def test_authorization_with_wrong_password():
+    data = {"userName": project.config.login, "password": fake.password()}
 
     response = send_request('/Account/v1/Authorized', 'post', json=data)
     body = response.json()
