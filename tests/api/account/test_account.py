@@ -113,7 +113,7 @@ class TestTokenGeneration:
     @allure.epic("Аккаунт")
     @allure.feature("Генерация токена")
     @allure.story("Успешная")
-    def test_successful_token_generation():
+    def test_successful_token_generation(self):
         data = valid_credentials
 
         response = send_request('/Account/v1/GenerateToken', 'post', json=data)
@@ -131,7 +131,7 @@ class TestTokenGeneration:
     @allure.epic("Аккаунт")
     @allure.feature("Генерация токена")
     @allure.story("Проваленная")
-    def test_failed_token_generation():
+    def test_failed_token_generation(self):
         data = {"userName": project.config.login, "password": fake.password()}
 
         response = send_request('/Account/v1/GenerateToken', 'post', json=data)
@@ -142,3 +142,24 @@ class TestTokenGeneration:
         assert body.get('expires') is None
         assert body['status'] == 'Failed'
         assert body['result'] == 'User authorization failed.'
+
+
+class TestUser:
+
+    def test_post_user(self):
+        data = {"userName": fake.user_name(), "password": fake.password()}
+        # data = {"userName": "username", "password": "password"}
+
+        response = send_request('/Account/v1/User', 'post', json=data)
+        body = response.json()
+
+        assert response.status_code == 201
+        # assert body == True
+
+    def test_post_existing_user(self):
+        data = valid_credentials
+
+        response = send_request('/Account/v1/User', 'post', json=data)
+        body = response.json()
+
+        assert response.status_code == 406
