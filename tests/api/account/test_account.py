@@ -1,10 +1,10 @@
 import allure
 from allure_commons.types import Severity
+from faker import Faker
 
 import project
 from demoqa_tests.test_data.api_users import valid_credentials
 from demoqa_tests.utils.http_logger import send_request
-from faker import Faker
 
 fake = Faker()
 
@@ -30,7 +30,7 @@ def test_successful_authorization():
 @allure.label("owner", "dobrovolskiysv")
 @allure.epic("Аккаунт")
 @allure.feature("Авторизация")
-@allure.story("Проваленная")
+@allure.story("С неправильным паролем")
 def test_authorization_with_wrong_password():
     data = {"userName": project.config.login, "password": fake.password()}
 
@@ -47,10 +47,62 @@ def test_authorization_with_wrong_password():
 @allure.label("owner", "dobrovolskiysv")
 @allure.epic("Аккаунт")
 @allure.feature("Авторизация")
-@allure.story("Без данных для входа")
-def test_authorization_without_credentials():
+@allure.story("С неправильным логином")
+def test_authorization_with_wrong_login():
+    data = {"userName": fake.email(), "password": fake.password()}
 
-    response = send_request('/Account/v1/Authorized', 'post')
+    response = send_request('/Account/v1/Authorized', 'post', json=data)
+    body = response.json()
+
+    assert response.status_code == 404
+    assert body['code'] == '1207'
+    assert body['message'] == 'User not found!'
+
+
+@allure.tag("api")
+@allure.severity(Severity.BLOCKER)
+@allure.label("owner", "dobrovolskiysv")
+@allure.epic("Аккаунт")
+@allure.feature("Авторизация")
+@allure.story("С пустым паролем")
+def test_authorization_with_empty_password():
+    data = {"userName": project.config.login, "password": fake.password()}
+
+    response = send_request('/Account/v1/Authorized', 'post', json=data)
+    body = response.json()
+
+    assert response.status_code == 404
+    assert body['code'] == '1207'
+    assert body['message'] == 'User not found!'
+
+
+@allure.tag("api")
+@allure.severity(Severity.BLOCKER)
+@allure.label("owner", "dobrovolskiysv")
+@allure.epic("Аккаунт")
+@allure.feature("Авторизация")
+@allure.story("С пустым логином")
+def test_authorization_with_empty_login():
+    data = {"userName": project.config.login, "password": ''}
+
+    response = send_request('/Account/v1/Authorized', 'post', json=data)
+    body = response.json()
+
+    assert response.status_code == 400
+    assert body['code'] == '1200'
+    assert body['message'] == 'UserName and Password required.'
+
+
+@allure.tag("api")
+@allure.severity(Severity.BLOCKER)
+@allure.label("owner", "dobrovolskiysv")
+@allure.epic("Аккаунт")
+@allure.feature("Авторизация")
+@allure.story("Без данных для входа")
+def test_authorization_with_empty_body():
+    data = {}
+
+    response = send_request('/Account/v1/Authorized', 'post', json=data)
     body = response.json()
 
     assert response.status_code == 400
