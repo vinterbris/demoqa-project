@@ -84,7 +84,7 @@ def test_successful_token_generation():
 @allure.feature("Генерация токена")
 @allure.story("Проваленная")
 def test_failed_token_generation():
-    data = invalid_credentials
+    data = {"userName": project.config.login, "password": fake.password()}
 
     response = send_request('/Account/v1/GenerateToken', 'post', json=data)
     body = response.json()
