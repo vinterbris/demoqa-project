@@ -26,7 +26,6 @@ class TestAuthorization:
         assert body == True
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Авторизация")
@@ -42,7 +41,6 @@ class TestAuthorization:
         assert body['message'] == 'User not found!'
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Авторизация")
@@ -58,7 +56,6 @@ class TestAuthorization:
         assert body['message'] == 'User not found!'
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Авторизация")
@@ -74,7 +71,6 @@ class TestAuthorization:
         assert body['message'] == 'User not found!'
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Авторизация")
@@ -90,7 +86,6 @@ class TestAuthorization:
         assert body['message'] == 'UserName and Password required.'
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Авторизация")
@@ -108,7 +103,6 @@ class TestAuthorization:
 
 class TestTokenGeneration:
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Генерация токена")
@@ -126,7 +120,6 @@ class TestTokenGeneration:
         assert body['result'] == 'User authorized successfully.'
 
     @allure.tag("api")
-    @allure.severity(Severity.BLOCKER)
     @allure.label("owner", "dobrovolskiysv")
     @allure.epic("Аккаунт")
     @allure.feature("Генерация токена")
@@ -145,7 +138,11 @@ class TestTokenGeneration:
 
 
 class TestUser:
-
+    @allure.tag("api")
+    @allure.label("owner", "dobrovolskiysv")
+    @allure.epic("Аккаунт")
+    @allure.feature("Пользователь")
+    @allure.story("Создание нового пользователя")
     def test_post_user(self):
         data = {"userName": fake.user_name(), "password": fake.password()}
         # data = {"userName": "username", "password": "password"}
@@ -156,6 +153,11 @@ class TestUser:
         assert response.status_code == 201
         # assert body == True
 
+    @allure.tag("api")
+    @allure.label("owner", "dobrovolskiysv")
+    @allure.epic("Аккаунт")
+    @allure.feature("Пользователь")
+    @allure.story("Создание существующего пользователя")
     def test_post_existing_user(self):
         data = valid_credentials
 
