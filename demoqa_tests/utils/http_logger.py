@@ -36,7 +36,9 @@ def send_request(url, method, **kwargs):
 
 def log(response):
     curl = curlify.to_curl(response.request)
-    logging.info(curl)
+    logging.basicConfig(level=logging.INFO)
+    logging.info(curl) # I don't get why it doesn't work
+    print(curl)
     allure.attach(
         body=curl, name='curl', attachment_type=AttachmentType.TEXT, extension='txt'
     )

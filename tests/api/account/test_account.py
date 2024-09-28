@@ -137,6 +137,7 @@ class TestTokenGeneration:
         assert body['result'] == 'User authorization failed.'
 
 
+# TODO FINISH
 class TestUser:
     @allure.tag("api")
     @allure.label("owner", "dobrovolskiysv")
